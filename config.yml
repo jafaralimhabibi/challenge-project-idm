@@ -1,0 +1,20 @@
+server:
+  port: 7777
+
+jwt:
+  secret: "Classified777"      
+  expires_in_minutes: 60
+
+mongodb:
+  host: "localhost"
+  port: 27017
+  database: "mongodb"
+  username: "mongoadmin"
+  password: "classified1234"
+
+admin:
+  username: "admin"
+  password: "testadminonly"   
+
+socket:
+  namespace: "/"
