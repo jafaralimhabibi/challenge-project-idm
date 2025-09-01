@@ -38,9 +38,11 @@ func main() {
 	e.Any("/socket.io/*", echo.WrapHandler(io))
 
 	api := e.Group("/api")
+	auth := e.Group("/auth")
 	api.Use(localmw.ValidateMiddleware())
+	auth.Use(localmw.ValidateMiddleware())
 
-	rAuth.UserAuth(api)
+	rAuth.UserAuth(auth)
 	rProduct.ProductRoute(api)
 
 	addr := fmt.Sprintf(":%d", cfg.Server.Port)
