@@ -3,6 +3,7 @@
 Ini adalah contoh sederhana implementasi dari Echo Golang + MongoDB + Socket.io
 
 Struktur folder yang saya biasa desain sebagai berikut:
+```bash
 |   config.yml
 |   go.mod
 |   go.sum
@@ -44,6 +45,7 @@ Struktur folder yang saya biasa desain sebagai berikut:
     +---scheduler
     \---socket
             socket.go
+```
 
 ## REST API dan Socket.io
 
