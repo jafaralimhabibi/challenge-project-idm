@@ -37,8 +37,15 @@ func main() {
 	io := socketService.NewServer()
 	e.Any("/socket.io/*", echo.WrapHandler(io))
 
+	CORSConfig := echomw.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
+	}
+
 	api := e.Group("/api")
 	auth := e.Group("/auth")
+	api.Use(echomw.CORSWithConfig(CORSConfig))
+	auth.Use(echomw.CORSWithConfig(CORSConfig))
 	api.Use(localmw.ValidateMiddleware())
 	auth.Use(localmw.ValidateMiddleware())
 
